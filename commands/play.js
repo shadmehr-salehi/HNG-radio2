@@ -66,7 +66,7 @@ module.exports = {
       channel,
       connection: null,
       songs: [],
-      loop: false,
+      loop: true,
       volume: DEFAULT_VOLUME || 100,
       playing: true
     };
