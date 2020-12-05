@@ -20,11 +20,22 @@ const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
  */
 client.on("ready", () => {
   console.log(`${client.user.username} ready!`);
-  client.user.setActivity(`${PREFIX}help and ${PREFIX}play`, { type: "LISTENING" });
+  client.user.setActivity(`Join and enjoy 😉`, { type: "LISTENING" });
 });
 client.on("warn", (info) => console.log(info));
 client.on("error", console.error);
+client.on("ready", () => {
+    const channel = client.channels.cache.get("693389656867209246");
+    if (!channel) return console.error("The channel does not exist!");
+    channel.join().then(connection => {
+        // Yay, it worked!
+        console.log("Successfully connected.");
+    }).catch(e => {
 
+        // Oh no, it errored! Let's log it to console :)
+        console.error(e);
+    });
+});
 /**
  * Import all commands
  */
